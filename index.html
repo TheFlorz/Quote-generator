@@ -76,6 +76,14 @@
      padding: 15px 40px;
     margin-bottom: 1rem;
  }
+ footer p{
+     color: #ffffff;
+     font-size: 1.5rem;
+     text-align: center;
+     position: absolute;
+     top: 90%;
+     left: 45%;
+ }
  @media only screen and (max-width: 600px){
      .container{
         padding: 0.6rem 2rem;  
@@ -93,12 +101,22 @@
      .container p{
          font-size: 1rem;
      }
+     footer p{
+        position: absolute;
+     top: 85%;
+     left: 30%;
+     }
  }
  @media only screen and (min-width: 768px) and (max-width:  1024px){
  body{
     background: url(wall.jpg);
     background-size: cover;
  }
+ footer p{
+        position: absolute;
+     top: 83%;
+     left: 40%;
+     }
 
 }
     </style>
@@ -114,7 +132,9 @@
             <button id="btn">Get Quote</button>
         </div>
     </div>
-
+      <div>
+          <footer><p>Cooked by Florz.</p></footer>
+      </div>
     <script>
         let quote = document.getElementById("quote");
         let author = document.getElementById("author");
