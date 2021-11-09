@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Generator</title>
+
+    <style>
+   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');
+ *{
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+     font-family: 'Playfair Display', serif;
+ }
+ body{
+     background: url(wall.jpg);
+     background-size: cover;
+     background-repeat: no-repeat;
+ }
+ .big-container{
+         position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+ }
+ .container{
+     width: 100%;
+     background: #ffffff;
+     position: relative;
+     min-height: 10rem;
+     border-radius: 10px;
+     text-align: center;
+     padding: 0.6rem 2.5rem;
+     box-shadow: 0px 24px 64px rgba(6, 56, 39, 0.25);
+ }
+ .container h1{
+     color:#ffffff;
+     font-size: 2rem;
+     font-weight: bold;
+     background: #16161d;
+     margin-bottom: 1.5rem;
+     margin: -2.5rem;
+     margin-top: -0.7rem;
+ }
+ .display{
+     background: #ffffff;
+     min-height: 3rem;
+     box-shadow: 0 0 20px rgba(6,56, 39,0.25);
+     margin-top: 5rem;
+ }
+ .container p{
+     color: #000;
+     line-height: 2;
+     font-size: 1.2rem;
+     margin: 2rem 1rem 3.5rem 1rem;
+ }
+ .container h3::before{
+     content: '- ';
+ }
+ .container h3{
+     font-weight: 600;
+     color: #000;
+     margin: 1.2rem 0 3.5rem 0;
+     text-transform: capitalize;
+ }
+ .container button{
+     font-size: 1.2rem;
+     font-weight: 600;
+     color: #ffffff;
+     background: #16161d;
+     border: 1px solid #16161d;
+     border-radius: 10px;
+     cursor: pointer;
+     padding: 15px 40px;
+    margin-bottom: 1rem;
+ }
+ @media only screen and (max-width: 600px){
+     .container{
+        padding: 0.6rem 2rem;  
+     }
+     .container h1{
+         margin: -2.1rem;
+     }
+     .big-container{
+         width: 18rem;
+     }
+     body{
+        background: url(wall.jpg);
+     background-size: cover;
+     }
+     .container p{
+         font-size: 1rem;
+     }
+ }
+ @media only screen and (min-width: 768px) and (max-width:  1024px){
+ body{
+    background: url(wall.jpg);
+    background-size: cover;
+ }
+
+}
+    </style>
+</head>
+<body>
+    <div class="big-container"> 
+        <div class="container">
+            <div><h1>Quote Generator</h1></div>
+            <div class="display">
+                <p id="quote">Florz na babe, Florz na spec, Florz set die!</p>
+                <h3 id="author">Florz of Lagos.</h3>
+            </div>
+            <button id="btn">Get Quote</button>
+        </div>
+    </div>
+
+    <script>
+        let quote = document.getElementById("quote");
+        let author = document.getElementById("author");
+        let btn = document.getElementById("btn");
+
+
+        const url = "https://api.quotable.io/random";
+
+        let getQuote = () => {
+            fetch(url)
+
+            .then((data) => data.json())
+            .then((item) => {
+      quote.innerText = item.content;
+      author.innerText = item.author;
+    });
+        };
+        window.addEventListener("load", getQuote);
+btn.addEventListener("click", getQuote);
+    </script>
+</body>
+</html>
